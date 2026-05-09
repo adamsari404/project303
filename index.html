@@ -4,18 +4,12 @@
 <head>
 
     <meta charset="UTF-8">
-
-    <meta name="viewport"
-        content="width=device-width, initial-scale=1.0">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Klasemen Turnamen Slot</title>
 
-    <link
-        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
-        rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <style>
-
         body{
             background:#111;
             color:white;
@@ -108,7 +102,7 @@
         }
 
         /* ==========================================
-           TAMBAHAN: CSS HISTORY JUARA
+           CSS HISTORY JUARA
            ========================================== */
         .history-section {
             background: #222;
@@ -133,7 +127,7 @@
             border-radius: 10px;
             padding: 15px;
             margin-bottom: 15px;
-            border-left: 5px solid #ffc107; /* Aksen Emas untuk Pools */
+            border-left: 5px solid #ffc107; 
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -146,7 +140,7 @@
         }
 
         .history-card.play-theme {
-            border-left: 5px solid #001AFF; /* Aksen Biru untuk Play */
+            border-left: 5px solid #001AFF; 
         }
 
         .history-info h5 {
@@ -165,7 +159,7 @@
         .history-prize {
             font-size: 18px;
             font-weight: bold;
-            color: #28a745; /* Warna hijau untuk hadiah */
+            color: #28a745; 
             background: rgba(40, 167, 69, 0.1);
             padding: 5px 10px;
             border-radius: 8px;
@@ -183,7 +177,7 @@
         🏆 KLASEMEN TURNAMEN SLOT
     </div>
 
-	<div id="promoCarousel" class="carousel slide" data-bs-ride="carousel">
+    <div id="promoCarousel" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item active">
                 <img src="https://placehold.co/800x800?text=Banner1" alt="Slide 1">
@@ -208,211 +202,65 @@
         </button>
     </div>
 
-
     <div class="text-center">
-
-        <button
-            class="main-btn btn-pools"
-            onclick="showSection('pools')">
-
+        <button class="main-btn btn-pools" onclick="showSection('pools')">
             KLASEMEN POOLS303
-
         </button>
-
-        <button
-            class="main-btn btn-play"
-            onclick="showSection('play')">
-
+        <button class="main-btn btn-play" onclick="showSection('play')">
             KLASEMEN PLAY303
-
         </button>
-
     </div>
 
-    <!-- POOLS -->
-
-    <div id="pools-section"
-        class="search-section">
-
-        <h2 class="text-center text-white mb-4">
-            POOLS303
-        </h2>
-
+    <div id="pools-section" class="search-section">
+        <h2 class="text-center text-white mb-4">POOLS303</h2>
         <div class="row">
-
             <div class="col-md-6">
-
                 <div class="search-box">
-
-                    <h4 class="text-white">
-                        PG SOFT
-                    </h4>
-
+                    <h4 class="text-white">PG SOFT</h4>
                     <div class="input-group">
-
-                        <input
-                            type="text"
-                            id="pools-pg-input"
-                            class="form-control"
-                            placeholder="Masukkan Username">
-
-                        <button
-                            class="btn btn-primary"
-                            onclick="searchData(
-                                'PG SOFT POOLS303',
-                                'pools-pg-input',
-                                'pools-pg-result'
-                            )">
-
-                            Cari
-
-                        </button>
-
+                        <input type="text" id="pools-pg-input" class="form-control" placeholder="Masukkan Username">
+                        <button class="btn btn-primary" onclick="searchData('PG SOFT POOLS303', 'pools-pg-input', 'pools-pg-result')">Cari</button>
                     </div>
-
-                    <div
-                        id="pools-pg-result"
-                        class="result-box">
-                    </div>
-
+                    <div id="pools-pg-result" class="result-box"></div>
                 </div>
-
             </div>
-
             <div class="col-md-6">
-
                 <div class="search-box">
-
-                    <h4 class="text-warning">
-                        PRAGMATIC
-                    </h4>
-
+                    <h4 class="text-warning">PRAGMATIC</h4>
                     <div class="input-group">
-
-                        <input
-                            type="text"
-                            id="pools-prag-input"
-                            class="form-control"
-                            placeholder="Masukkan Username">
-
-                        <button
-                            class="btn btn-warning"
-                            onclick="searchData(
-                                'PRAGMATIC POOLS303',
-                                'pools-prag-input',
-                                'pools-prag-result'
-                            )">
-
-                            Cari
-
-                        </button>
-
+                        <input type="text" id="pools-prag-input" class="form-control" placeholder="Masukkan Username">
+                        <button class="btn btn-warning" onclick="searchData('PRAGMATIC POOLS303', 'pools-prag-input', 'pools-prag-result')">Cari</button>
                     </div>
-
-                    <div
-                        id="pools-prag-result"
-                        class="result-box">
-                    </div>
-
+                    <div id="pools-prag-result" class="result-box"></div>
                 </div>
-
             </div>
-
         </div>
-
     </div>
 
-    <!-- PLAY -->
-
-    <div id="play-section"
-        class="search-section">
-
-        <h2 class="text-white text-center mb-4">
-            PLAY303
-        </h2>
-
+    <div id="play-section" class="search-section">
+        <h2 class="text-white text-center mb-4">PLAY303</h2>
         <div class="row">
-
             <div class="col-md-6">
-
                 <div class="search-box">
-
-                    <h4 class="text-white">
-                        PG SOFT
-                    </h4>
-
+                    <h4 class="text-white">PG SOFT</h4>
                     <div class="input-group">
-
-                        <input
-                            type="text"
-                            id="play-pg-input"
-                            class="form-control"
-                            placeholder="Masukkan Username">
-
-                        <button
-                            class="btn btn-primary"
-                            onclick="searchData(
-                                'PG SOFT PLAY303',
-                                'play-pg-input',
-                                'play-pg-result'
-                            )">
-
-                            Cari
-
-                        </button>
-
+                        <input type="text" id="play-pg-input" class="form-control" placeholder="Masukkan Username">
+                        <button class="btn btn-primary" onclick="searchData('PG SOFT PLAY303', 'play-pg-input', 'play-pg-result')">Cari</button>
                     </div>
-
-                    <div
-                        id="play-pg-result"
-                        class="result-box">
-                    </div>
-
+                    <div id="play-pg-result" class="result-box"></div>
                 </div>
-
             </div>
-
             <div class="col-md-6">
-
                 <div class="search-box">
-
-                    <h4 class="text-warning">
-                        PRAGMATIC
-                    </h4>
-
+                    <h4 class="text-warning">PRAGMATIC</h4>
                     <div class="input-group">
-
-                        <input
-                            type="text"
-                            id="play-prag-input"
-                            class="form-control"
-                            placeholder="Masukkan Username">
-
-                        <button
-                            class="btn btn-warning"
-                            onclick="searchData(
-                                'PRAGMATIC PLAY303',
-                                'play-prag-input',
-                                'play-prag-result'
-                            )">
-
-                            Cari
-
-                        </button>
-
+                        <input type="text" id="play-prag-input" class="form-control" placeholder="Masukkan Username">
+                        <button class="btn btn-warning" onclick="searchData('PRAGMATIC PLAY303', 'play-prag-input', 'play-prag-result')">Cari</button>
                     </div>
-
-                    <div
-                        id="play-prag-result"
-                        class="result-box">
-                    </div>
-
+                    <div id="play-prag-result" class="result-box"></div>
                 </div>
-
             </div>
-
         </div>
-
     </div>
 
     <div class="history-section">
@@ -420,7 +268,13 @@
             📜 RIWAYAT JUARA SEBELUMNYA
         </div>
 
-        <div class="row justify-content-center mb-4">
+        <div class="text-center mb-4" id="history-action-container">
+            <button id="btn-load-history" class="btn btn-outline-warning fw-bold px-4 py-2" onclick="initHistoryData()">
+                Muat Riwayat Juara 🔄
+            </button>
+        </div>
+
+        <div class="row justify-content-center mb-4" id="history-filters" style="display: none;">
             <div class="col-md-4 mb-2">
                 <div class="input-group">
                     <label class="input-group-text bg-dark text-white border-secondary" for="filterBulan">Bulan</label>
@@ -455,22 +309,22 @@
         <div id="history-status" class="text-center mb-3"></div>
 
         <div class="row">
-            <div class="col-md-6 mb-4" id="box-pools-pg">
+            <div class="col-md-6 mb-4" id="box-pools-pg" style="display:none;">
                 <h5 class="text-warning text-center mb-3 fw-bold border-bottom border-warning pb-2">🏆 POOLS303 - PG SOFT</h5>
                 <div id="data-pools-pg"></div>
             </div>
 
-            <div class="col-md-6 mb-4" id="box-pools-prag">
+            <div class="col-md-6 mb-4" id="box-pools-prag" style="display:none;">
                 <h5 class="text-warning text-center mb-3 fw-bold border-bottom border-warning pb-2">🏆 POOLS303 - PRAGMATIC</h5>
                 <div id="data-pools-prag"></div>
             </div>
 
-            <div class="col-md-6 mb-4" id="box-play-pg">
+            <div class="col-md-6 mb-4" id="box-play-pg" style="display:none;">
                 <h5 class="text-primary text-center mb-3 fw-bold border-bottom border-primary pb-2">🏆 PLAY303 - PG SOFT</h5>
                 <div id="data-play-pg"></div>
             </div>
 
-            <div class="col-md-6 mb-4" id="box-play-prag">
+            <div class="col-md-6 mb-4" id="box-play-prag" style="display:none;">
                 <h5 class="text-primary text-center mb-3 fw-bold border-bottom border-primary pb-2">🏆 PLAY303 - PRAGMATIC</h5>
                 <div id="data-play-prag"></div>
             </div>
@@ -478,13 +332,13 @@
     </div>
 
 </div>
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script>
 
-
     /*
     ==========================================
-    SHOW SECTION
+    SHOW SECTION TABS
     ==========================================
     */
     function showSection(section){
@@ -495,7 +349,7 @@
 
     /*
     ==========================================
-    SEARCH DATA (VIA CLOUDFLARE PROXY) - PROTECTED
+    SEARCH DATA (VIA CLOUDFLARE PROXY)
     ==========================================
     */
     async function searchData(sheetName, inputId, resultId) {
@@ -515,13 +369,11 @@
             const url = `/api/search?sheet=${encodeURIComponent(sheetName)}`;
             const response = await fetch(url);
 
-            // PROTEKSI 1: Cek status HTTP
             if (!response.ok) throw new Error(`Server Error: ${response.status}`);
 
-            // PROTEKSI 2: Cek format respon server
             const contentType = response.headers.get("content-type");
             if (!contentType || !contentType.includes("application/json")) {
-                throw new TypeError("Sistem menerima format HTML/Teks (kemungkinan fallback halaman lokal), bukan JSON.");
+                throw new TypeError("Sistem menerima format HTML/Teks, bukan JSON.");
             }
 
             const data = await response.json();
@@ -555,7 +407,6 @@
             }
 
         } catch(error) {
-            console.error("Detail Error Pencarian:", error);
             resultBox.innerHTML=`
                 <span class="text-danger">
                     Gagal menghubungi server database.<br>
@@ -568,28 +419,24 @@
 
     /*
     ==========================================
-    STATE MANAGEMENT & FILTER LOGIC
+    STATE MANAGEMENT & HISTORY LOGIC
     ==========================================
     */
-    
-    // Variabel Global untuk menyimpan data mentah dari Google Sheets
     let cachedHistoryData = [];
 
-    /*
-    ==========================================
-    FETCH HISTORY DATA - PROTECTED
-    ==========================================
-    */
-    /*
-    ==========================================
-    FETCH HISTORY DATA - PROTECTED (WITH LOCAL MOCK)
-    ==========================================
-    */
     async function initHistoryData() {
         const statusBox = document.getElementById('history-status');
-        statusBox.innerHTML = `<span class="text-info">Menghubungkan ke Database... ⏳</span>`;
+        const btnLoad = document.getElementById('btn-load-history');
+        const filterBox = document.getElementById('history-filters');
 
-        // ... [KODE TRY CATCH FETCH TETAP SAMA SEPERTI SEBELUMNYA] ...
+        // 1. Ubah tombol menjadi status Loading
+        if(btnLoad) {
+            btnLoad.disabled = true;
+            btnLoad.innerHTML = 'Memuat Data... ⏳';
+        }
+
+        statusBox.innerHTML = `<span class="text-info">Menghubungkan ke Database Server... ⏳</span>`;
+
         try {
             const url = `/api/history`; 
             const response = await fetch(url);
@@ -598,56 +445,62 @@
 
             const contentType = response.headers.get("content-type");
             if (!contentType || !contentType.includes("application/json")) {
-                throw new TypeError("Sistem menerima format HTML/Teks (kemungkinan fallback halaman lokal), bukan JSON.");
+                throw new TypeError("Sistem menerima format HTML/Teks, bukan JSON.");
             }
 
             const data = await response.json();
             
             if (!data.values || data.values.length <= 1) {
                 statusBox.innerHTML = `<span class="text-warning">Belum ada data di sheet HISTORY_JUARA.</span>`;
+                if(btnLoad) {
+                    btnLoad.disabled = false;
+                    btnLoad.innerHTML = 'Muat Ulang 🔄';
+                }
                 return;
             }
 
             cachedHistoryData = data.values.slice(1);
             statusBox.innerHTML = ''; 
 
+            // 2. Sembunyikan tombol & Tampilkan filter setelah sukses
+            if(btnLoad) document.getElementById('history-action-container').style.display = 'none';
+            if(filterBox) filterBox.style.display = 'flex';
+
             renderHistory();
 
         } catch (error) {
-            
             statusBox.innerHTML = `<span class="text-danger">Gagal memuat database riwayat:<br><small>${error.message}</small></span>`;
+            
+            // 3. Kembalikan tombol jika error agar bisa dicoba lagi
+            if(btnLoad) {
+                btnLoad.disabled = false;
+                btnLoad.innerHTML = 'Coba Lagi 🔄';
+            }
         }
     }
 
-    // Fungsi 2: Filter dan Render Data ke Layar (Berjalan tanpa memanggil API lagi)
     function renderHistory() {
-        // Ambil Nilai Filter Saat Ini
         const fBulan = document.getElementById('filterBulan').value;
         const fSitus = document.getElementById('filterSitus').value;
         const fProvider = document.getElementById('filterProvider').value;
 
-        // Siapkan Wadah Data
         let poolsPgData = [];
         let poolsPragData = [];
         let playPgData = [];
         let playPragData = [];
 
-        // Loop Data yang ada di Memori
         cachedHistoryData.forEach(row => {
             const [bulan, situs, provider, ranking, username, hadiah] = row;
 
-            // Pastikan data diproses dengan huruf kapital agar kebal terhadap salah ketik di Excel
             const sBulan = (bulan || '').trim();
             const sSitus = (situs || '').trim().toUpperCase();
             const sProvider = (provider || '').trim().toUpperCase();
 
-            // Aturan Filter Utama
             const matchBulan = sBulan === fBulan;
             const matchSitus = fSitus === 'SEMUA' || sSitus === fSitus;
             const matchProvider = fProvider === 'SEMUA' || sProvider === fProvider;
 
             if (matchBulan && matchSitus && matchProvider) {
-                // Masukkan ke keranjang yang sesuai
                 if (sSitus === 'POOLS303' && sProvider === 'PG SOFT') poolsPgData.push(row);
                 if (sSitus === 'POOLS303' && sProvider === 'PRAGMATIC') poolsPragData.push(row);
                 if (sSitus === 'PLAY303' && sProvider === 'PG SOFT') playPgData.push(row);
@@ -655,11 +508,9 @@
             }
         });
 
-        // Fungsi Helper untuk Cetak HTML (Maksimal 10 Record)
         const buildHTML = (dataArray, themeClass) => {
             if (dataArray.length === 0) return `<p class="text-center text-secondary">Tidak ada data.</p>`;
             
-            // Potong array (limit) hanya mengambil index 0 sampai 9 (10 data teratas)
             const limitedData = dataArray.slice(0, 10);
             
             return limitedData.map(row => {
@@ -676,22 +527,20 @@
             }).join('');
         };
 
-        // Eksekusi Cetak ke HTML
         document.getElementById('data-pools-pg').innerHTML = buildHTML(poolsPgData, '');
         document.getElementById('data-pools-prag').innerHTML = buildHTML(poolsPragData, '');
         document.getElementById('data-play-pg').innerHTML = buildHTML(playPgData, 'play-theme');
         document.getElementById('data-play-prag').innerHTML = buildHTML(playPragData, 'play-theme');
 
-        // Logika Tampilan (Sembunyikan kotak jika Filter Situs/Provider mensyaratkan demikian)
         document.getElementById('box-pools-pg').style.display = (fSitus !== 'PLAY303' && fProvider !== 'PRAGMATIC') ? 'block' : 'none';
         document.getElementById('box-pools-prag').style.display = (fSitus !== 'PLAY303' && fProvider !== 'PG SOFT') ? 'block' : 'none';
         document.getElementById('box-play-pg').style.display = (fSitus !== 'POOLS303' && fProvider !== 'PRAGMATIC') ? 'block' : 'none';
         document.getElementById('box-play-prag').style.display = (fSitus !== 'POOLS303' && fProvider !== 'PG SOFT') ? 'block' : 'none';
     }
 
-    // Ubah Event Listener DOMContentLoaded untuk memanggil initHistoryData (bukan loadHistoryData)
+    // Biarkan kosong, jangan jalankan auto-fetch
     document.addEventListener('DOMContentLoaded', () => {
-        initHistoryData(); // Hanya dieksekusi 1x saat buka halaman
+        // UI Menunggu interaksi tombol "Muat Riwayat"
     });
 
 </script>
