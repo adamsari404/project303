@@ -114,4 +114,28 @@ async function getGoogleAccessToken(email, key) {
 
     const tokenData = await res.json();
     if (!tokenData.access_token) {
-        throw new Error(`Gagal mendapatkan token: ${JSON
+        throw new Error(`Gagal mendapatkan token: ${JSON.stringify(tokenData)}`);
+    }
+    
+    return tokenData.access_token;
+}
+
+function base64UrlEncode(str) {
+    return btoa(str)
+        .replace(/\+/g, '-')
+        .replace(/\//g, '_')
+        .replace(/=+$/, '');
+}
+
+function base64UrlEncodeBuffer(buffer) {
+    let binary = '';
+    const bytes = new Uint8Array(buffer);
+    const len = bytes.byteLength;
+    for (let i = 0; i < len; i++) {
+        binary += String.fromCharCode(bytes[i]);
+    }
+    return btoa(binary)
+        .replace(/\+/g, '-')
+        .replace(/\//g, '_')
+        .replace(/=+$/, '');
+}
