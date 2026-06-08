@@ -219,6 +219,9 @@
         <button class="main-btn btn-play desktop-btn-large" onclick="showSection('play')">
            PLAY303
         </button>
+        <button class="main-btn desktop-btn-large" onclick="showSection('agent')" style="background:linear-gradient(45deg,#FF0000,#990000); color:white;">
+           AGENT303
+        </button>
     </div>
 
     <div id="pools-section" class="search-section">
@@ -268,6 +271,27 @@
                         <button class="btn btn-warning" onclick="searchData('PRAGMATIC PLAY303', 'play-prag-input', 'play-prag-result')">Cari</button>
                     </div>
                     <div id="play-prag-result" class="result-box"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="agent-section" class="search-section">
+        <h2 class="text-white text-center mb-4">AGENT303</h2>
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="search-box">
+                    <h4 class="text-danger mb-3">Cek Klasemen</h4>
+                    <div class="mb-3">
+                        <label class="text-white-50 small mb-1">UserID</label>
+                        <input type="text" id="agent-userid-input" class="form-control" placeholder="Masukkan UserID">
+                    </div>
+                    <div class="mb-3">
+                        <label class="text-white-50 small mb-1">Nama</label>
+                        <input type="text" id="agent-name-input" class="form-control" placeholder="Masukkan Nama Terdaftar">
+                    </div>
+                    <button class="btn btn-danger w-100 fw-bold" onclick="searchAgentData('AGENT303', 'agent-userid-input', 'agent-name-input', 'agent-result')">CARI DATA</button>
+                    <div id="agent-result" class="result-box"></div>
                 </div>
             </div>
         </div>
@@ -361,6 +385,7 @@
     function showSection(section){
         document.getElementById('pools-section').style.display='none';
         document.getElementById('play-section').style.display='none';
+        document.getElementById('agent-section').style.display='none';
         document.getElementById(section + '-section').style.display='block';
     }
 
@@ -430,6 +455,69 @@
                     <small>${error.message}</small>
                 </span>
             `;
+        }
+    }
+
+    async function searchAgentData(sheetName, userIdInputId, nameInputId, resultId) {
+        // Mengambil dan membersihkan nilai dari kedua input
+        const userId = document.getElementById(userIdInputId).value.trim().toLowerCase();
+        const nameData = document.getElementById(nameInputId).value.trim().toLowerCase();
+        const resultBox = document.getElementById(resultId);
+
+        // Validasi: Wajib isi kedua kolom
+        if(!userId || !nameData){
+            resultBox.style.display='block';
+            resultBox.innerHTML=`<span class="text-danger">⚠️ Harap masukkan UserID dan Nama dengan lengkap!</span>`;
+            return;
+        }
+
+        resultBox.style.display='block';
+        resultBox.innerHTML=`<span class="text-light">Sedang mencari data... ⏳</span>`;
+
+        try {
+            const url = `/api/search?sheet=${encodeURIComponent(sheetName)}`;
+            const response = await fetch(url);
+
+            if (!response.ok) throw new Error(`Server Error: ${response.status}`);
+            
+            const data = await response.json();
+            const rows = data.values;
+
+            if(data.error || !rows){
+                resultBox.innerHTML=`<span class="text-danger">Data sheet kosong.</span>`;
+                return;
+            }
+
+            let found = false;
+            
+            // Looping data dari Google Sheets
+            rows.forEach((row, index) => {
+                if(index === 0) return; // Lewati header tabel
+
+                // Asumsi indeks kolom: 0=Rank, 1=UserID, 2=Name, 3=Turnover
+                const rank = row[0] || '-';
+                const sheetUserId = (row[1] || '').toString().toLowerCase();
+                const sheetName = (row[2] || '').toString().toLowerCase();
+                const turnover = row[3] || '-';
+
+                // Cocokkan KEDUA data (UserID DAN Name harus sama persis)
+                if(sheetUserId === userId && sheetName === nameData){
+                    found = true;
+                    resultBox.innerHTML=`
+                        <div class="result-item">Ranking: <span>${rank}</span></div>
+                        <div class="result-item">UserID: <span class="text-white">${row[1]}</span></div>
+                        <div class="result-item">Name: <span class="text-white">${row[2]}</span></div>
+                        <div class="result-item border-0">Turnover: <span class="text-success">${turnover}</span></div>
+                    `;
+                }
+            });
+
+            if(!found){
+                resultBox.innerHTML=`<span class="text-warning">❌ Data tidak ditemukan. Pastikan UserID dan Nama sudah benar.</span>`;
+            }
+
+        } catch(error) {
+            resultBox.innerHTML=`<span class="text-danger">Gagal menghubungi server.<br><small>${error.message}</small></span>`;
         }
     }
     
